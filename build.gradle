@@ -18,6 +18,8 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	compileOnly 'io.swagger.core.v3:swagger-annotations:2.0.0-rc4'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
