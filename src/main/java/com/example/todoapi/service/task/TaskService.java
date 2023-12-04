@@ -10,8 +10,8 @@ public class TaskService {
 
     private final TaskRepository taskRepository;
 
-    public TaskEntity find() {
-      return  taskRepository.select().map(record -> new TaskEntity(record.getId(), record.getTitle()))
+    public TaskEntity find(Long taskId) {
+      return  taskRepository.select(taskId).map(record -> new TaskEntity(record.getId(), record.getTitle()))
                 .orElseThrow(() -> new IllegalStateException("TODO")); //TODO
     }
 }
