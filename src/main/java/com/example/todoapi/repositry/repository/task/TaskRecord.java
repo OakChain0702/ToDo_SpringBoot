@@ -1,10 +1,10 @@
 package com.example.todoapi.repositry.repository.task;
 
-import lombok.Data;
+import lombok.Value;
 
-@Data
+@Value
 public class TaskRecord {
 
-    long id;
+    Long id;
     String title;
 }
