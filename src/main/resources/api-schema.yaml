@@ -30,7 +30,7 @@ paths:
             schema:
               $ref: "#/components/schemas/TaskForm"
       responses:
-        201:
+        '201':
           description: "Created"
           headers:
             location:
@@ -41,7 +41,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/TaskDTO"
-        400:
+        '400':
           description: "Bad Request"
           content:
             application/json:
@@ -113,7 +113,7 @@ components:
         - title
         - detail
     BadRequestError:
-      description: "リクエストが不正です。"
+      description: "リクエストが不正"
       type: object
       properties:
         title:
@@ -123,25 +123,25 @@ components:
         detail:
           type: string
           description: "エラーの詳細"
-          default: "リクエストが不正です。正しいリクエストでリトライしれください。"
+          default: "リクエストが不正です。正しいリクエストでリトライしてください。"
         invalid-params:
-            type: array
-            items:
-              $ref: "#/components/schemas/InvalidParam"
+          type: string
+          items:
+            $ref: "#/components/schemas/InvalidParam"
       required:
         - title
-        - -detail
+        - detail
         - invalid-params
     InvalidParam:
-    　description: "不正なリクエストについての詳細"
+      description: "不正なリクエストについての詳細"
       type: object
       properties:
         name:
           type: string
-          desctription: "エラーが発生したフィールド名"
+          description: "エラーのタイトル"
         reason:
           type: string
-          desctription: "エラーの理由"
+          description: "エラーの理由"
       required:
         - name
         - reason
