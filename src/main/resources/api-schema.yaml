@@ -41,6 +41,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/TaskDTO"
+        400:
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BadRequestError"
   /tasks/{taskId}:
     get:
       summary: "タスク取得"
@@ -106,3 +112,36 @@ components:
       required:
         - title
         - detail
+    BadRequestError:
+      description: "リクエストが不正です。"
+      type: object
+      properties:
+        title:
+          type: string
+          description: "エラーのタイトル"
+          default: "Bad Request"
+        detail:
+          type: string
+          description: "エラーの詳細"
+          default: "リクエストが不正です。正しいリクエストでリトライしれください。"
+        invalid-params:
+            type: array
+            items:
+              $ref: "#/components/schemas/InvalidParam"
+      required:
+        - title
+        - -detail
+        - invalid-params
+    InvalidParam:
+    　description: "不正なリクエストについての詳細"
+      type: object
+      properties:
+        name:
+          type: string
+          desctription: "エラーが発生したフィールド名"
+        reason:
+          type: string
+          desctription: "エラーの理由"
+      required:
+        - name
+        - reason
