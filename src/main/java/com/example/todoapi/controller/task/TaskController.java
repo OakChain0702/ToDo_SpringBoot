@@ -37,4 +37,8 @@ public class TaskController implements TasksApi {
         return ResponseEntity.created(URI.create("?tasksk/" + dto.getId() )).body(dto);
     }
 
+    @Override
+    public ResponseEntity<Void> listTasks() {
+        return ResponseEntity.ok().build();
+    }
 }
