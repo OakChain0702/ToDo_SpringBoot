@@ -15,7 +15,7 @@ paths:
         - opts
       responses:
         '200':
-          description: OK
+          description: "OK"
   /tasks/:
     get:
       summary: "タスク一覧取得"
@@ -44,12 +44,18 @@ paths:
             minimum: 0
             default: 0
       responses:
-        200:
-          description: OK
+        '200':
+          description: "OK"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/TaskListDTO"
+        '400':
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BadRequestError"
     post:
       summary: "タスク作成"
       description: "タスクを新規作成します"
@@ -97,7 +103,7 @@ paths:
             format: int64
       responses:
         '200':
-          description: OK
+          description: "OK"
           content:
             application/json:
               schema:
