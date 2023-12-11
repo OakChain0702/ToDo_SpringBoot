@@ -40,6 +40,6 @@ public class CustomExceptionHandler  extends ResponseEntityExceptionHandler {
             ConstraintViolationException ex
     ){
         var error = BdRequestErrorCreator.from(ex);
-        return ResponseEntity.badRequest().body(new BadRequestError());
+        return ResponseEntity.badRequest().body(error);
     }
 }
