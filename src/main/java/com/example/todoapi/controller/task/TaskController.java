@@ -57,8 +57,8 @@ public class TaskController implements TasksApi {
     }
 
     @Override
-    public ResponseEntity<TaskDTO> editId(Long taskId) {
-        var entity = taskService.find(taskId);
+    public ResponseEntity<TaskDTO> editId(Long taskId, TaskForm taskForm) {
+        var entity = taskService.update(taskId, taskForm.getTitle());
         var dto = toTaskDTO(entity);
         return ResponseEntity.ok(dto);
     }
