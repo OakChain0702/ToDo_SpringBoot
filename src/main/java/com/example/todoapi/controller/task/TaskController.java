@@ -62,4 +62,9 @@ public class TaskController implements TasksApi {
         taskDTO.setTitle(taskEntity.getTitle());
         return taskDTO;
     }
+
+    @Override
+    public ResponseEntity<Void> editId(Long taskId) {
+        return ResponseEntity.ok().build();
+    }
 }
